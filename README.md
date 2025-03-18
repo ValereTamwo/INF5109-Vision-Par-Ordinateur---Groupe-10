@@ -4,7 +4,7 @@
 # Transfer Learning pour la Segmentation d'Instances de Bouteilles avec Mask R-CNN
 
 Ce notebook reproduit le code d’un article pour détecter et segmenter des bouteilles plastiques via transfer learning avec Mask R-CNN, dans le but d’automatiser le recyclage. Réalisé sur Kaggle, il est divisé en 2 parties.  
-[Lien du notebook Kaggle](https://www.kaggle.com/code/franckvalere/inf5109-vision-par-ordinateur-groupe-10)
+[Lien du notebook Kaggle](https://www.kaggle.com/code/franckvalere/inf5109-vision-par-ordinateur-groupe-10/edit)
 
 **Auteurs** : Tamwo Feuwo Franck Valère - 20u2837, Kuetche Ngoufack Fideline - 20u2958
 
@@ -13,6 +13,12 @@ Ce notebook reproduit le code d’un article pour détecter et segmenter des bou
 ## Préambule : Problème de Compatibilité avec TensorFlow et Solution
 
 Mask R-CNN requiert une version de TensorFlow inférieure ou égale à 1.15.0. Cependant, les environnements d’exécution actuels ne prennent plus en charge cette version, et celle-ci a été retirée des dépôts officiels, rendant la reproduction de l’approche initiale très difficile. Pour contourner ce problème, nous avons utilisé un environnement d’exécution récupéré via Kaggle, basé sur le code de "Ashraf Khan" ([lien](https://www.kaggle.com/code/ashrafkhan94/matterport-mask-r-cnn-model-object-detection)), datant du 11 février 2021. Cet environnement inclut les dépendances nécessaires, notamment TensorFlow 1.15.0, et a permis de reproduire fidèlement le code de l’article sélectionné.
+
+---
+
+## Exécution Interactive sur Kaggle
+- Ouvrez le fichier notebook pour visualiser le travail effectuer
+- Pour exécuter ce notebook de manière interactive avec toutes les dépendances préconfigurées, nous vous invitons à vous rendre sur Kaggle. Le notebook est disponible dans le dépôt suivant : [INF5109 - Vision Par Ordinateur - Groupe 10](https://www.kaggle.com/code/franckvalere/inf5109-vision-par-ordinateur-groupe-10/edit). Si vous avez été ajouté comme collaborateur à ce dépôt, vous pouvez directement lancer et modifier le notebook en ligne. Cela garantit une exécution fluide sans avoir à recréer localement l’environnement spécifique requis. et un suivi fluide des instructions mentionnees ici
 
 ---
 

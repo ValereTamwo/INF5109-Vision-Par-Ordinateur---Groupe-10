@@ -1,11 +1,16 @@
-# INF5109: Vision Par Ordinateur - Groupe 10
+# INF5109 : Vision Par Ordinateur - Groupe 10
 # Transfer Learning pour la Segmentation d'Instances de Bouteilles avec Mask R-CNN
 
-Ce notebook reproduit le code d’un article pour détecter et segmenter des bouteilles plastiques via transfer learning avec Mask R-CNN, pour automatiser le recyclage. Réalisé sur Kaggle, il est divisé en 2 parties.
+Ce notebook reproduit le code d’un article pour détecter et segmenter des bouteilles plastiques via transfer learning avec Mask R-CNN, dans le but d’automatiser le recyclage. Réalisé sur Kaggle, il est divisé en 2 parties.  
 [Lien du notebook Kaggle](https://www.kaggle.com/code/franckvalere/inf5109-vision-par-ordinateur-groupe-10)
 
-**Auteurs** :Tamwo Feuwo Franck Valère - 20u2837, Kuetche Ngoufack Fideline - 20u2958
+**Auteurs** : Tamwo Feuwo Franck Valère - 20u2837, Kuetche Ngoufack Fideline - 20u2958
 
+---
+
+## Préambule : Problème de Compatibilité avec TensorFlow et Solution
+
+Mask R-CNN requiert une version de TensorFlow inférieure ou égale à 1.15.0. Cependant, les environnements d’exécution actuels ne prennent plus en charge cette version, et celle-ci a été retirée des dépôts officiels, rendant la reproduction de l’approche initiale très difficile. Pour contourner ce problème, nous avons utilisé un environnement d’exécution récupéré via Kaggle, basé sur le code de "Ashraf Khan" ([lien](https://www.kaggle.com/code/ashrafkhan94/matterport-mask-r-cnn-model-object-detection)), datant du 11 février 2021. Cet environnement inclut les dépendances nécessaires, notamment TensorFlow 1.15.0, et a permis de reproduire fidèlement le code de l’article sélectionné.
 
 ---
 
@@ -22,9 +27,9 @@ Ce notebook reproduit le code d’un article pour détecter et segmenter des bou
     cd /kaggle/working/Mask_RCNN/Mask_RCNN
     !python setup.py install
     ```
-  - Chargement  des poids pré-entraînés de COCO (inclut la classe "bottle").
+  - Chargement des poids pré-entraînés de COCO (inclut la classe "bottle").
   - Exécuter les cellules 8 à 16 pour prédire sur le dataset.
-  - Résultat : Détection imprecise des bouteilles (voir image des résultats).
+  - Résultat : Détection imprécise des bouteilles (voir image des résultats).
 - **Réentraînement** :
   - Réentraînement des couches "heads" de Mask R-CNN avec cette configuration :
     ```python
@@ -35,16 +40,16 @@ Ce notebook reproduit le code d’un article pour détecter et segmenter des bou
         STEPS_PER_EPOCH = 1000
         DETECTION_MIN_CONFIDENCE = 0.9
     ```
-  - Utilisation les poids de COCO comme base.
+  - Utilisation des poids de COCO comme base.
   - Sauvegarde des poids entraînés à : `/kaggle/input/bottle_weight_model/tensorflow1/default/1/mask_rcnn_bottle_0100.h5`.
 
 ---
 
 ## Partie 2 : Inférence
 
-- **Objectif** : Chargement des poids entraînés et prédire sur images/vidéos.
+- **Objectif** : Charger les poids entraînés et prédire sur images/vidéos.
 - **Étapes** :
-  - Chargement les poids sauvegardés : `/kaggle/input/bottle_weight_model/tensorflow1/default/1/mask_rcnn_bottle_0100.h5`.
+  - Chargement des poids sauvegardés : `/kaggle/input/bottle_weight_model/tensorflow1/default/1/mask_rcnn_bottle_0100.h5`.
   - Passage le modèle en mode inférence.
   - Exécuter les cellules de la section "Inférence".
 - **Prédiction sur images** :

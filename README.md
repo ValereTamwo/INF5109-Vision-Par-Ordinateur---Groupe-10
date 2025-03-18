@@ -1,4 +1,6 @@
 # INF5109 : Vision Par Ordinateur - Groupe 10
+## Theme:Détection d'objets et de segmentation d'images basée sur Mask R-CNN
+## Article Selectionné
 # Transfer Learning pour la Segmentation d'Instances de Bouteilles avec Mask R-CNN
 
 Ce notebook reproduit le code d’un article pour détecter et segmenter des bouteilles plastiques via transfer learning avec Mask R-CNN, dans le but d’automatiser le recyclage. Réalisé sur Kaggle, il est divisé en 2 parties.  
